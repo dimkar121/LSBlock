@@ -20,12 +20,16 @@ The source has been tested with Python versions 3.10 and 3.12
 
  
 The following scripts evaluate the performance of LSBlock to perform record linkage using specific datasets:
-- `faiss_acm.py` uses ACM and DBLP.
-- `faiss_Scholar_DBLP.py` uses Google Scholar and DBLP.
-- `faiss_abt.py` uses Abt and Buy.
-- `faiss_resaurants.py` uses Fodor's and Zagat's.
-- `faiss_amazon.py` uses Amazon and Google Products.
-- `faiss_voters10_small.py` uses two subsets of the Voters dataset.
-- `faiss_voters10.py` uses Voters.  
+| paired dataset | linkage | SHAP (for deriving the blocks keys) |
+| --- | --- | --- |
+| ACM and DBLP | `faiss_acm.py` | `acm_blocking_keys.py` |
+| Google Scholar and DBLP | `faiss_Scholar_DBLP.py` | `scholar_blocking_keys.py` |
+| Abt and Buy | `faiss_abt.py` | `abt_blocking_keys.py` |
+| Fodor's and Zagat's | `faiss_restaurants.py` | `restaurants_blocking_keys.py` |
+| Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` |
+| Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` |
+| two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` |
+| Voters10 | `faiss_voters10.py` | |
+
   
    
