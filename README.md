@@ -19,7 +19,7 @@ pip3 install -r requirements.txt
 The source has been tested with Python versions 3.10 and 3.12
 
  
-The following scripts evaluate the performance of LSBlock to perofrm record linkage using specific datasets:
+The following scripts evaluate the performance of LSBlock to perform record linkage using specific datasets:
 - `faiss_acm.py` uses ACM and DBLP.
 - `faiss_Scholar_DBLP.py` uses Google Scholar and DBLP.
 - `faiss_abt.py` uses Abt and Buy.
