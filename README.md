@@ -27,7 +27,6 @@ The following scripts evaluate the performance of LSBlock to perform record link
 | Abt and Buy | `faiss_abt.py` | `abt_blocking_keys.py` |
 | Fodor's and Zagat's | `faiss_restaurants.py` | `restaurants_blocking_keys.py` |
 | Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` |
-| Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` |
 | two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` |
 | Voters10 | `faiss_voters10.py` | |
 
