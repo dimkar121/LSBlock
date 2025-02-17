@@ -23,7 +23,7 @@ The source has been tested with Python versions 3.10 and 3.12
  
 The following scripts evaluate the performance of LSBlock using the following benchmark datasets:
 | paired dataset | linkage | SHAP (for deriving the blocking keys) | Recall-Precision (averages) |
-| --- | --- | --- | ---: |
+| --- | --- | --- | :---: |
 | ACM and DBLP | `faiss_acm.py` | `acm_blocking_keys.py` | 0.98 - 0.71 |
 | Google Scholar and DBLP | `faiss_Scholar_DBLP.py` | `scholar_blocking_keys.py` | 0.96 - 0.73 |
 | Abt and Buy | `faiss_abt.py` | `abt_blocking_keys.py` | 0.95 - 0.12 |
