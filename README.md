@@ -19,7 +19,7 @@ pip3 install -r requirements.txt
 The source has been tested with Python versions 3.10 and 3.12
 
  
-The following scripts evaluate the performance of LSBlock to perform record linkage using specific datasets:
+The following scripts evaluate the performance of LSBlock to perform record linkage using the following benchmark datasets:
 | paired dataset | linkage | SHAP (for deriving the blocking keys) |
 | --- | --- | --- |
 | ACM and DBLP | `faiss_acm.py` | `acm_blocking_keys.py` |
@@ -28,7 +28,7 @@ The following scripts evaluate the performance of LSBlock to perform record link
 | Fodor's and Zagat's | `faiss_restaurants.py` | `restaurants_blocking_keys.py` |
 | Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` |
 | two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` |
-| Voters10 | `faiss_voters10.py` | |
+| Voters10 (10M records) | `faiss_voters10.py` | |
 
   
    
