@@ -22,10 +22,10 @@ The source has been tested with Python versions 3.10 and 3.12
 The following scripts evaluate the performance of LSBlock to perofrm record linkage using specific datasets:
 - `faiss_acm.py` uses ACM and DBLP.
 - `faiss_Scholar_DBLP.py` uses Google Scholar and DBLP.
-- `faiss_abt.py' uses Abt and Buy.
-- `faiss_resaurants.py' uses Fodor's and Zagat's.
-- `faiss_amazon.py' uses Amazon and Google Products.
-- `faiss_voters10_small.py' uses two subsets of the Voters dataset.
-- `faiss_voters10.py' uses Voters.  
+- `faiss_abt.py` uses Abt and Buy.
+- `faiss_resaurants.py` uses Fodor's and Zagat's.
+- `faiss_amazon.py` uses Amazon and Google Products.
+- `faiss_voters10_small.py` uses two subsets of the Voters dataset.
+- `faiss_voters10.py` uses Voters.  
   
    
