@@ -20,7 +20,7 @@ The source has been tested with Python versions 3.10 and 3.12
 
  
 The following scripts evaluate the performance of LSBlock to perform record linkage using specific datasets:
-| paired dataset | linkage | SHAP (for deriving the blocks keys) |
+| paired dataset | linkage | SHAP (for deriving the blocking keys) |
 | --- | --- | --- |
 | ACM and DBLP | `faiss_acm.py` | `acm_blocking_keys.py` |
 | Google Scholar and DBLP | `faiss_Scholar_DBLP.py` | `scholar_blocking_keys.py` |
