@@ -32,5 +32,6 @@ The following scripts evaluate the performance of LSBlock using the following be
 | two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` | 0.97 - 0.69 |
 | Voters10 (10M records) | `faiss_voters10.py` | | 0.96 - 0.79 |
 
+In order to run `faiss_voters10.py` download the the .pqt files from (here)[https://houtest-my.sharepoint.com/:f:/g/personal/dkarapiperis_eap_gr/EtS8jKGOJulNk2s0hsAJNu4Bszb9F3rrpN7MgC1UMNQP0w?e=w4EhBV]
   
    
