@@ -24,12 +24,12 @@ The source has been tested with Python versions 3.10 and 3.12
 The following scripts evaluate the performance of LSBlock using the following benchmark datasets:
 | paired dataset | linkage | SHAP (for deriving the blocking keys) | Recall-Precision (averages) |
 | --- | --- | --- | :---: |
-| ACM and DBLP | `faiss_acm.py` | `acm_blocking_keys.py` | 0.98 - 0.71 |
-| Google Scholar and DBLP | `faiss_Scholar_DBLP.py` | `scholar_blocking_keys.py` | 0.96 - 0.73 |
+| ACM and DBLP | `faiss_acm.py` | `acm_blocking_keys.py` | 0.98 - 0.69 |
+| Google Scholar and DBLP | `faiss_Scholar_DBLP.py` | `scholar_blocking_keys.py` | 0.96 - 0.66 |
 | Abt and Buy | `faiss_abt.py` | `abt_blocking_keys.py` | 0.95 - 0.12 |
-| Fodor's and Zagat's | `faiss_restaurants.py` | `restaurants_blocking_keys.py` | 0.99 - 0.75 |
+| Fodor's and Zagat's | `faiss_restaurants.py` | `restaurants_blocking_keys.py` | 0.99 - 0.68 |
 | Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` | 0.89 - 0.08 | 
-| two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` | 0.97 - 0.88 |
+| two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` | 0.97 - 0.69 |
 | Voters10 (10M records) | `faiss_voters10.py` | | 0.96 - 0.79 |
 
   
