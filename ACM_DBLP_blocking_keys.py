@@ -44,6 +44,7 @@ data=data.drop("index", axis=1)
 titles_diff = []
 venues_diff =[]
 authorss_diff =[]
+years_diff= []
 for _, row in data.iterrows():
     id1 = row.iloc[0]
     id2 = row.iloc[1]
@@ -56,6 +57,10 @@ for _, row in data.iterrows():
     venue2 = df2[df2["id"] == id2]["venue"].values[0]
     venue_diff = jaccard_distance(venue1, venue2)
     venues_diff.append(venue_diff)
+    year1 = df1[df1["id"] == id1]["year"].values[0]
+    year2 = df2[df2["id"] == id2]["year"].values[0]
+    year_diff = jaccard_distance(year1, year2)
+    years_diff.append(year_diff)
     authors1 =  df1[df1["id"] == id1]["authors"].values[0]
     authors2 = df2[df2["id"] == id2]["authors"].values[0]
     authors_diff = jaccard_distance(authors1, authors2)
@@ -64,13 +69,14 @@ for _, row in data.iterrows():
 data["title"] = titles_diff
 data["venue"] = venues_diff
 data["authors"] = authorss_diff
+data["year"] = years_diff
 data=data.reset_index()
 data=data.drop("index", axis=1)
 y = data["match"]
 data = data.drop(columns=["match","id1","id2"])
 X = data
 
-keys, importance = dp.discriminative(X, y, ["title", "venue","authors"])
+keys, importance = dp.discriminative(X, y, ["title", "venue","authors","year"])
 print("shap_importance", importance, keys)
 
 

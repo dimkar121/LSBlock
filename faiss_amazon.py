@@ -63,7 +63,7 @@ if __name__ == '__main__':
            id2 = r2["id"]
            de2 = np.array([r2["v"]]).astype(np.uint8)
            byte_query = np.packbits(de2, axis=-1)
-           distances, indices = index1.search(byte_query, 10)
+           distances, indices = index1.search(byte_query, 5)
            distances = distances/120
            v_google = vectors_google[i2] 
            for ind, ds in zip(indices[0], distances[0]):

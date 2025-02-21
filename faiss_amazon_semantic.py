@@ -22,12 +22,10 @@ if __name__ == '__main__':
     matches = a
     print("No of matches=", matches)
 
-    d = 120
-    df1 = pd.read_parquet(f"./data/Amazon_embedded_minhash.pqt")
-    df2 = pd.read_parquet(f"./data/Google_embedded_minhash.pqt")
+    d = 384
+    df1 = pd.read_parquet(f"./data/Amazon_embedded_mini.pqt")
+    df2 = pd.read_parquet(f"./data/Google_embedded_mini.pqt")
  
-    theta = thr.opt_jaccard_threshold(df1, df2, truth)
-
     amazons = []
     for i1, r1 in df1.iterrows():
              id = r1["id"]
@@ -35,22 +33,17 @@ if __name__ == '__main__':
              description = r1["description"]
              amazons.append([id, name, description])
     
-    index1 = faiss.IndexBinaryHNSW(d, 32)
-    index1.metric_type = faiss.METRIC_Jaccard
-    index1.hnsw.efConstruction = 60
-    index1.hnsw.efSearch = 16
+    index = faiss.IndexHNSWFlat(d, 32)
+    index.hnsw.efConstruction = 60
+    index.hnsw.efSearch = 16
     vectors = df1['v'].tolist()
-    data = np.array(vectors).astype(np.uint8)
-    byte_data = np.packbits(data, axis=-1)
-    index1.add(byte_data)  # Reshape to 2D array
+    data = np.array(vectors).astype(np.float32)
+    index.add(data)
 
-    model="mini"
-    df11 = pd.read_parquet(f"./data/Amazon_embedded_{model}.pqt")
-    df22 = pd.read_parquet(f"./data/Google_embedded_{model}.pqt")    
-    vectors_amazon =  df11['v'].tolist()
-    vectors_google = df22['v'].tolist()
+    vectors_amazon = df1['v'].tolist()
+    vectors_google = df2['v'].tolist()
 
-    phi = thr.opt_inner_threshold(df11, df22, truth)
+    phi = thr.opt_inner_threshold(df1, df2, truth)
 
 
     tp = 0
@@ -61,14 +54,12 @@ if __name__ == '__main__':
            name = r2["name"]
            description = r2["description"]
            id2 = r2["id"]
-           de2 = np.array([r2["v"]]).astype(np.uint8)
-           byte_query = np.packbits(de2, axis=-1)
-           distances, indices = index1.search(byte_query, 10)
-           distances = distances/120
+           de2 = np.array([r2["v"]]).astype(np.float32)
+           distances, indices = index.search(de2, 5)
+
            v_google = vectors_google[i2] 
            for ind, ds in zip(indices[0], distances[0]):
-              if ds < theta:
-                 v_amazon = vectors_amazon[ind] 
+                 v_amazon = vectors_amazon[ind]
                  idAmazon = amazons[ind][0]
                  sim = np.inner(v_amazon, v_google)
                  if sim > phi:

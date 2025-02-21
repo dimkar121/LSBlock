@@ -74,7 +74,7 @@ if __name__ == '__main__':
           id = r2["id"]
           de2 = np.array([r2["v"]]).astype(np.uint8)
           byte_data = np.packbits(de2, axis=1)
-          distances, indices1 = index.search(byte_data, 3)    # return scholars           
+          distances, indices1 = index.search(byte_data, 5)    # return scholars
           distances = distances/120
           i=0 
           v_acm = vectors_acm[i2]                         

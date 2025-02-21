@@ -71,7 +71,7 @@ if __name__ == '__main__':
            type2 = r2["type"]
            de2 = np.array([r2["v"]]).astype(np.uint8)
            byte_data = np.packbits(de2, axis=1)
-           distances, indices1 = index.search(byte_data, 3)                
+           distances, indices1 = index.search(byte_data, 5)
            distances = distances/120
            v_zagats = vectors_zagats[i2]
            for ind, ds in zip(indices1[0], distances[0]): 

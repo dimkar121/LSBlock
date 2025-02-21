@@ -21,8 +21,8 @@ if __name__ == '__main__':
     matches = len(truthD.keys()) + a
     print("No of matches=", matches)
 
-    df1 = pd.read_parquet(f"./data/Abt_embedded_minhash.pqt")
-    df2 = pd.read_parquet(f"./data/Buy_embedded_minhash.pqt")
+    df1 = pd.read_parquet(f"./data/Abt_embedded_mini.pqt")
+    df2 = pd.read_parquet(f"./data/Buy_embedded_mini.pqt")
 
     abts=[]
     for i1, r1 in df1.iterrows():
@@ -32,27 +32,18 @@ if __name__ == '__main__':
           abts.append([id, name, description])
 
  
-    d = 120
-    index1 = faiss.IndexBinaryHNSW(d, 32)
-    index1.metric_type = faiss.METRIC_Jaccard
-    index1.hnsw.efConstruction = 60
-    index1.hnsw.efSearch = 16
+    d = 384
+    index = faiss.IndexHNSWFlat(d, 32)
+    index.hnsw.efConstruction = 60
+    index.hnsw.efSearch = 16
     vectors = df1['v'].tolist()
-    data = np.array(vectors).astype(np.uint8)
-    byte_data = np.packbits(data, axis=-1)
-    index1.add(byte_data)  
+    data = np.array(vectors).astype(np.float32)
+    index.add(data)
 
-    theta = thr.opt_jaccard_threshold(df1, df2, truth)
+    vectors_abt = df1['v'].tolist()
+    vectors_buy = df2['v'].tolist()
 
-    model="mini"
-    d=384
-    df11 = pd.read_parquet(f"./data/Abt_embedded_{model}.pqt")
-    df22 = pd.read_parquet(f"./data/Buy_embedded_{model}.pqt")    
-
-    vectors_abt = df11['v'].tolist()
-    vectors_buy = df22['v'].tolist()
-
-    phi = thr.opt_inner_threshold(df11, df22, truth)
+    phi = thr.opt_inner_threshold(df1, df2, truth)
 
 
     tp = 0
@@ -63,13 +54,10 @@ if __name__ == '__main__':
            name = r2["name"]
            description = r2["description"]
            id2 = r2["id"]
-           de2 = np.array([r2["v"]]).astype(np.uint8)
-           byte_query = np.packbits(de2, axis=-1)
-           distances, indices = index1.search(byte_query, 10)
-           distances = distances/120
-           v_buy = vectors_buy[i2]          
+           de2 = np.array([r2["v"]]).astype(np.float32)
+           distances, indices = index.search(de2, 10)
+           v_buy = vectors_buy[i2]
            for ind, ds in zip(indices[0], distances[0]):
-             if ds < theta:  
                v_abt = vectors_abt[ind]
                sim = np.inner(v_buy, v_abt)
                if sim > phi:

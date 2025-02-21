@@ -155,7 +155,7 @@ def choose_threshold(X, y):
   optimizer = optim.Adam(model.parameters(), lr=0.001)
 
   # Training loop
-  num_epochs = 100
+  num_epochs = 10
   for epoch in range(num_epochs):
     model.train()
     optimizer.zero_grad()
