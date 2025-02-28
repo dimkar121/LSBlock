@@ -37,7 +37,7 @@ The following scripts evaluate the performance of LSBlock using the following be
 | Fodor's and Zagat's | `faiss_restaurants.py` | `restaurants_blocking_keys.py` | 0.99 - 0.68 |
 | Amazon and Google products | `faiss_amazon.py` | `amazon_blocking_keys.py` | 0.89 - 0.08 | 
 | two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` | 0.97 - 0.69 |
-| Voters10 (10M records) | `faiss_voters10.py` | | 0.96 - 0.60 |
+| Voters10 (10M records) | `faiss_voters10.py` | | 0.95 - 0.60 |
 
 In order to run `faiss_voters10.py` download the required parquet files from [here](https://houtest-my.sharepoint.com/:f:/g/personal/dkarapiperis_eap_gr/EtS8jKGOJulNk2s0hsAJNu4Bszb9F3rrpN7MgC1UMNQP0w?e=w4EhBV).
   
