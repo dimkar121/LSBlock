@@ -1,6 +1,6 @@
 
 # LSBlock
-LSBlock is a novel hybrid blocking system that combines lexical and semantic similarity to improve record linkage accuracy. By leveraging minhash-based blocking keys and dense embeddings, LSBlock effectively balances precision and recall by filtering candidate matches retrieved by the HNSW index.
+LSBlock is a novel hybrid blocking system that combines lexical and semantic similarity to improve record linkage accuracy. By leveraging minhash-based blocking keys and dense embeddings, LSBlock effectively balances precision and recall. 
 This repo contains the implementation of LSBlock and the benchmark datasets used to evaluate its performance. 
 The title of the corresponding manuscript is:
 
