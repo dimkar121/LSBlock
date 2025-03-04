@@ -69,7 +69,7 @@ if __name__ == '__main__':
            distances = distances/120
            v_buy = vectors_buy[i2]          
            for ind, ds in zip(indices[0], distances[0]):
-             if ds < theta:  
+             if ds < theta:
                v_abt = vectors_abt[ind]
                sim = np.inner(v_buy, v_abt)
                if sim > phi:

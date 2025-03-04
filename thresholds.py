@@ -141,11 +141,13 @@ def choose_threshold(X, y):
     def __init__(self):
         super().__init__()
         self.fc1 = nn.Linear( 1, 16)
+        self.fc02 = nn.Linear(16, 16)
         self.fc2 = nn.Linear(16,1)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         x = torch.relu(self.fc1(x))
+        x = torch.relu(self.fc02(x))
         x = self.sigmoid(self.fc2(x))
         return x
 

@@ -75,7 +75,7 @@ if __name__ == '__main__':
            distances = distances/120
            v_zagats = vectors_zagats[i2]
            for ind, ds in zip(indices1[0], distances[0]): 
-                 if ds < theta:   
+                 if ds < theta:
                     v_fodors = vectors_fodors[ind]
                     sim = np.inner(v_zagats, v_fodors)
                     if sim > phi:

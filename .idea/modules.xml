@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BlockG.iml" filepath="$PROJECT_DIR$/.idea/BlockG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LSBlock.iml" filepath="$PROJECT_DIR$/.idea/LSBlock.iml" />
     </modules>
   </component>
 </project>
