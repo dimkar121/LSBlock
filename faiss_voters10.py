@@ -2,8 +2,6 @@ import pandas as pd
 import numpy as np
 import faiss
 import time
-from faiss import write_index, read_index
-import math
 
 if __name__ == '__main__':
     model = "minhash"
@@ -91,7 +89,7 @@ if __name__ == '__main__':
           qtimes.append(end_t - start_t)
 
     mean_q = np.mean(qtimes)
-    print(f"recall={round(tp/matches, 2)} precision={round(tp/(tp+fp), 2)} query time for batches of {no_batch} records={round(mean_q,4)}")
+    print(f"recall={round(tp/matches, 2)} precision={round(tp/(tp+fp), 2)} query time ={round(mean_q/no_batch,4)}")
 
 
 
