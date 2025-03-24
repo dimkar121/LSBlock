@@ -46,7 +46,7 @@ if __name__ == '__main__':
     total_time = end_t - start_t
     print(f"Total time for building the index {round(total_time,3)}")
 
-    matches = 3_700_000
+    matches = 3_000_000
     n = 0
     k = 10
     tp = 0
