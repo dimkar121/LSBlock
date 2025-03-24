@@ -39,6 +39,8 @@ The following scripts evaluate the performance of LSBlock using the following be
 | two subsets of the Voters dataset | `faiss_voters10_small.py` | `voters_blocking_keys.py` | 0.97 - 0.69 |
 | Voters10 (10M records) | `faiss_voters10.py` | | 0.95 - 0.60 |
 
+`faiss_multi.py` first splits `voters10_minhash_A.pqt` into multiple chunks, where each chunk is assigned to a separate worker process using `multiprocessing.Process()`. Each worker builds a FAISS index independently using its assigned data chunk, ensuring parallel index construction without shared memory conflicts. The FAISS indexes are stored in the local memory of each process to avoid serialization overhead. Once the indexes are built, queries are dispatched in parallel to all processes, where each worker searches its local FAISS index. The individual search results are collected via an inter-process queue (multiprocessing.Queue), and the main process merges them to return the final ranked results. This approach maximizes parallelism while minimizing data transfer bottlenecks, making it ideal for large-scale similarity search applications.
+
 In order to run `faiss_voters10.py` download the required parquet files from [here](https://1drv.ms/f/c/5d21c94cfd3ca26c/EruRIWVgq3BAiPsXt5RHnpABL5g0asPNHfAbcTSGAjPfsg?e=EPsIjT).
   
    
