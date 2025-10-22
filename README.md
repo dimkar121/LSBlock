@@ -4,20 +4,12 @@ LSBlock is a novel hybrid blocking system that combines lexical and semantic sim
 This repo contains the implementation of LSBlock and the benchmark datasets used to evaluate its performance. 
 The title of the corresponding manuscript is:
 
-"LSBlock: A Hybrid Blocking System Combining Lexical and Semantic Similarity Search for Record Linkage", 
+"LSBlock: A Hybrid Blocking System Combining Lexical and Semantic Similarity Search for Record Linkage"  and "Towards a Hybrid Embedding Model for Robust Entity Resolution"
 
 co-authored by D. Karapiperis (IHU), C. Tjortjis (IHU), and V. Verykios (HOU).
 
-
-## Abstract
-Record linkage plays a crucial role in data integration by identifying and merging records that correspond to the same entity across different datasets. Traditional linkage methods are either
-lexically driven, relying on surface-level textual matching, or semantically driven, capturing contextual meaning. In this paper, we propose LSBlock, a hybrid blocking system that integrates lexical
-and semantic similarity search to enhance record linkage accuracy by improving recall while maintaining high levels of precision. LSBlock utilizes minhash-based lexical similarity for efficient block-
-ing key formulation and applies dense embeddings with cosine similarity to refine candidate matches. A Hierarchical Navigable Small-World (HNSW) index is leveraged for efficient approximate
-nearest neighbor searches. The retrieved results are further refined using two thresholds: one in the Jaccard space and another in the cosine similarity space, both derived after training a model using
-labeled matches. Our experimental evaluation on six real-world datasets demonstrates that LSBlock significantly outperforms state-of-the-art blocking techniques in terms of recall, precision, and
-F1-score, achieving a balanced trade-off between efficiency and effectiveness. LSBlock consistently achieves recall above 0.95 and precision above 0.65, when using structured data, outperforming
-its competitors by a large margin. These findings highlight the advantages of integrating lexical and semantic similarity, making LSBlock a robust solution for scalable record linkage.
+## Hybrid Vectors
+We are currently working on a model that creates a single, robust vector for search (e.g., for e-commerce) that is resilient to both typos and semantic ambiguity. It achieves this by fusing two different types of embeddings using a trainable gated network. This allows the model to learn when to pay attention to spelling (to correct typos) and when to pay attention to meaning (to find related items), all within a single vector representation. We utilize (a) a transformer model (like Mini-LM) to get a context-aware vector that understands meaning, and (b) FastText (cc.en.300.bin) to get a sub-word vector that understands spelling and is robust to typos. 
 
 
 ## Running the artifact
