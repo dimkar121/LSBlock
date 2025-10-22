@@ -4,12 +4,10 @@ LSBlock is a novel hybrid blocking system that combines lexical and semantic sim
 This repo contains the implementation of LSBlock and the benchmark datasets used to evaluate its performance. 
 The title of the corresponding manuscript is:
 
-"LSBlock: A Hybrid Blocking System Combining Lexical and Semantic Similarity Search for Record Linkage"  and "Towards a Hybrid Embedding Model for Robust Entity Resolution"
-
-co-authored by D. Karapiperis (IHU), C. Tjortjis (IHU), and V. Verykios (HOU).
+"LSBlock: A Hybrid Blocking System Combining Lexical and Semantic Similarity Search for Record Linkage"  and "Towards a Hybrid Embedding Model for Robust Entity Resolution" co-authored by D. Karapiperis (IHU), C. Tjortjis (IHU), and V. Verykios (HOU).
 
 ## Hybrid Vectors
-We are currently working on a model that creates a single, robust vector for search (e.g., for e-commerce) that is resilient to both typos and semantic ambiguity. It achieves this by fusing two different types of embeddings using a trainable gated network. This allows the model to learn when to pay attention to spelling (to correct typos) and when to pay attention to meaning (to find related items), all within a single vector representation. We utilize (a) a transformer model (like Mini-LM) to get a context-aware vector that understands meaning, and (b) FastText (cc.en.300.bin) to get a sub-word vector that understands spelling and is robust to typos. 
+We are currently working on a model that creates a single, robust vector for search (e.g., for e-commerce) that is resilient to both typos and semantic ambiguity. It achieves this by fusing two different types of embeddings using a trainable gated network. This allows the model to learn when to pay attention to spelling (to correct typos) and when to pay attention to meaning (to find related items), all within a single vector representation. We utilize (a) a transformer model (like all-MiniLM-L6-v2) to get a context-aware vector that understands meaning, and (b) FastText (cc.en.300.bin) to get a sub-word vector that understands spelling and is robust to typos. 
 
 
 ## Running the artifact
